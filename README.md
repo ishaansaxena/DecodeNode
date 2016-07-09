@@ -1,2 +1,2 @@
 # DecodeNode
-An upcoming Cryptic Hunt
+An upcoming online Cryptic Hunt
