@@ -6,9 +6,9 @@ class Level(models.Model):
     uid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     text = models.TextField(max_length=250)
-    image = models.SlugField(default=None)
+    image = models.ImageField(default=None, blank=True)
     comment = models.CharField(max_length=200)
-    answer = models.TextField(max_length=50)
+    answer = models.TextField(max_length=50, blank=True)
 
     def __str__(self):
         return str(self.uid) + u" - " + self.title
