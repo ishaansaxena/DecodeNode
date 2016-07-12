@@ -124,8 +124,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-
 STATIC_URL = '/static/'
 
+# URLs
+LOGIN_URL = 'accounts:login'
+
+# Auth profile module
 AUTH_PROFILE_MODULE = 'accounts.UserData'
 
