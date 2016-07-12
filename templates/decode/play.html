@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ level.title }}</h1>
+<p>
+    {{ level.text }}
+</p>
+<p>
+    {{ level.image }}
+</p>
+<form method="POST" action="">
+    <input type="text" name="">
+    <input type="submit" name="">
+</form>
+<p class="hint">{{ level.comment }}</p>
+{% endblock %}
