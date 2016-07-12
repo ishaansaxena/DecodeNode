@@ -1,12 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .models import Level
+from django.contrib.auth.decorators import login_required
 
 def index(request):
-    return HttpResponse("Hello, world.")
+    context = {}
+    return render(request, 'decode/index.html', context)
 
-def question(request, question_id):
-    if question_id == 0:
-        return HttpResponse("Your account has been banned.")
+@login_required
+def play(request):
+    if request.user.details.is_banned:
+        return render(request, 'decode/banned.html', {})
     else:
-        return HttpResponse("You're looking at question %s." % question_id)
+        level = request.user.details.current_level
+        return render(request, 'decode/play.html', {'level': level})
