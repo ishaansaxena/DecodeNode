@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^(?P<question_id>[0-9]+)/$', views.question, name='question_page'),
+    url(r'^play/$', views.play, name='play'),
 ]
