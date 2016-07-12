@@ -8,10 +8,10 @@ class Level(models.Model):
     text = models.TextField(max_length=250)
     image = models.ImageField(default=None, blank=True)
     comment = models.CharField(max_length=200)
-    #answer = models.TextField(max_length=50, blank=True)
+    answer = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
-        return str(self.uid) + u" - " + self.title
+        return str(self.uid)
 
     @classmethod
     def set_default(self):
