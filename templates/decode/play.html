@@ -7,9 +7,15 @@
 <p>
     {{ level.image }}
 </p>
-<form method="POST" action="">
-    <input type="text" name="">
-    <input type="submit" name="">
+<p>
+    {% if errors %}
+        {{ errors }}
+    {% endif %}
+</p>
+<form action="{% url 'decode:play' %}" method="post">
+    {% csrf_token %}
+    {{ form.user_answer }}
+    <input type="submit" name="submit">
 </form>
 <p class="hint">{{ level.comment }}</p>
 {% endblock %}
