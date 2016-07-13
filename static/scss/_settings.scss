@@ -1,0 +1,18 @@
+// Palette
+$primary_dark: #303F9F;
+$primary_medium: #3F51B5;
+$primary_light: #C5CAE9;
+$white: #FFFFFF;
+$accent: #009688;
+$black: #212121;
+$grey_dark: #727272;
+$grey_light: #B6B6B6;
+
+// Mixins
+@mixin gradient($from, $to) {
+    background-color: $from;
+    background-image: -webkit-linear-gradient($from, $to);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+    background-image: -moz-linear-gradient($from, $to);
+    background-image: -o-linear-gradient($from, $to);
+}
