@@ -11,7 +11,7 @@ def index(request):
 
 @login_required
 def play(request):
-    current_user = User.objects.get(username=request.user.username)
+    current_user = User.objects.get(id=request.user.id)
     if current_user.details.is_banned:
         return render(request, 'decode/banned.html', {})
     else:
@@ -26,17 +26,14 @@ def play(request):
         elif request.method == 'POST':
             if form.is_valid():
                 if form.cleaned_data['user_answer'] == level.answer:
-                    next_level_uid = level.uid + 1
-                    current_user.details.current_level = Level.objects.get(pk=next_level_uid)
+                    current_user.details.set_level(level.uid + 1)
+                    current_user.details.save()
                     level = current_user.details.current_level
-                    current_user.is_banned = True
-                    form.save()
-                    current_user.save(force_update=True)
                     context['level'] = level
                 else:
                     context['errors'] = "Wrong Answer."
                 return render(request, 'decode/play.html', context)
             else:
                 current_user.details.is_banned = True
-                current_user.save()
+                current_user.details.save()
                 return render(request, 'decode/banned.html')
