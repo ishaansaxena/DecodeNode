@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+from .views import profile, leaderboard
 
 urlpatterns = [
     url(
@@ -34,5 +35,7 @@ urlpatterns = [
         kwargs = {
             'template_name': 'accounts/password_change_success.html'
         }
-    )
+    ),
+    url(r'^profile/$', profile, name='profile'),
+    url(r'^leaderboard/$', leaderboard, name='leaderboard')
 ]
