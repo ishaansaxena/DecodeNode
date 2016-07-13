@@ -1,16 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block title %}DecodeNode{% endblock %}
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+{% endblock %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <h1>Index</h1>
+<div id="container">
+    <div class="left-group">
+        <h1>Decode<span>Node</span></h1>
+        <div class="hr"></div>
         <p>
-        Welcome, {{ user.username }}
+        {% if user.is_authenticated %}
+            Hello <a href="{% url 'accounts:profile' %}">@{{ user.username }}</a>, Do you have it in you to dec0dE?
+        {% else %}
+
+        {% endif %}
         </p>
-        <p>
-            <a href="{% url 'accounts:password_change' %}">[Change Password]</a>
-            <a href="{% url 'accounts:logout' %}">[Logout]</a>
-            <a href="{% url 'decode:play' %}">[Play]</a>
-        </p>
-    {% else %}
-        <p>Welcome, Guest <a href="{% url 'accounts:login' %}">[Login]</a></p>
-    {% endif %}
+    </div>
+    <div class="right-group">
+        {% if user.is_authenticated %}
+            <a class="btn white" href="{% url 'decode:play' %}">Play</a>
+            <a class="btn blue" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
+            <a class="btn green" href="{% url 'accounts:profile' %}">Profile</a>
+        {% else %}
+            <a class="btn white" href="{% url 'decode:play' %}">Login</a>
+            <a class="btn green" href="{% url 'decode:play' %}">Register</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
