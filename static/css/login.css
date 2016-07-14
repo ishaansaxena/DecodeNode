@@ -1,0 +1,56 @@
+::selection {
+  background: #009688 !important;
+}
+
+::-moz-selection {
+  background: #009688 !important;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+.content {
+  padding: 80px 50px 70px 50px;
+  background: white;
+  color: #212121;
+}
+.content h1 {
+  margin: 0;
+  color: #212121;
+}
+.content h6 {
+  margin-bottom: 20px;
+}
+.content a {
+  color: #009688;
+}
+.content .btn.blue {
+  margin-top: 5px;
+  color: white;
+  background: #303f9f !important;
+}
+.content .btn.blue:hover {
+  color: #303f9f;
+  background: transparent !important;
+}
+.content ul {
+  position: absolute;
+  color: #b33647 !important;
+  font-size: 0.85rem;
+  right: 55px;
+  animation: disappear 5s ease-in-out forwards;
+}
+.content ul li {
+  display: block;
+  margin: 2px 0;
+}

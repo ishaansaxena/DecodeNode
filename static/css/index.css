@@ -1,3 +1,15 @@
+::-moz-selection {
+  background: transparent;
+}
+
+::selection {
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
 .left-group, .right-group {
   position: absolute;
   top: 50%;
@@ -24,17 +36,27 @@
 .left-group span {
   color: #009688;
 }
+.left-group h1 {
+  margin: auto auto;
+  width: 100%;
+  color: white;
+}
+@media (max-width: 768px) {
+  .left-group h1 {
+    font-size: 2.25rem !important;
+  }
+}
 .left-group .hr {
   display: inline-block;
   width: 50px;
   height: 1px;
   margin: 5px 0;
-  background: #b6b6b6;
+  background: #727272;
 }
 .left-group p {
   width: 50%;
   margin: 0 0 0 auto;
-  color: #b6b6b6;
+  color: white !important;
   font-weight: 300;
 }
 @media (max-width: 992px) {
@@ -74,5 +96,7 @@
   }
   .right-group .btn {
     display: inline-block;
+    width: auto;
+    margin: 2px auto;
   }
 }

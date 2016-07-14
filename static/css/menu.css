@@ -1,0 +1,61 @@
+::selection {
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+#menu {
+  z-index: 3;
+}
+#menu #trigger {
+  position: fixed;
+  width: 32px;
+  height: 24px;
+  top: 15px;
+  left: 20px;
+  z-index: 3;
+  cursor: pointer !important;
+}
+#menu #trigger:hover .poly {
+  transform: translateX(0px);
+  box-shadow: 3px 3px 2px white;
+}
+#menu #trigger:hover .rect {
+  animation: none;
+  transform: translateY(0px);
+  box-shadow: 3px 3px 2px white;
+}
+#menu #trigger .rect, #menu #trigger .poly {
+  display: block;
+  stroke: rgba(255, 255, 255, 0.5) !important;
+  cursor: pointer !important;
+}
+#menu #trigger .rect {
+  animation: blink 0.85s ease-in-out infinite;
+  transition: all 0.25s ease;
+  transform: translateY(2px);
+}
+#menu #trigger .poly {
+  transition: all 0.25s ease;
+  transform: translateX(-2px);
+}
+#menu #trigger svg {
+  width: 100%;
+  height: 100%;
+  cursor: pointer !important;
+}
