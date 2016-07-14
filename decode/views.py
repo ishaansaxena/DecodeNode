@@ -35,9 +35,11 @@ def play(request):
                     level = current_user.details.current_level
                     context['level'] = level
                 else:
-                    context['errors'] = "Wrong Answer."
+                    context['errors'] = "Wrong Answer"
                 return render(request, 'decode/play.html', context)
             else:
-                current_user.details.is_banned = True
-                current_user.details.save()
-                return render(request, 'decode/banned.html')
+                context['errors'] = "A Server needs an Answer"
+                return render(request, 'decode/play.html', context)
+                #current_user.details.is_banned = True
+                #current_user.details.save()
+                #return render(request, 'decode/banned.html')
