@@ -45,7 +45,7 @@ function Render(){
                 context.lineTo(i * cellSize, j * cellSize);
                 context.lineTo(i * cellSize + cellSize, j * cellSize + cellSize);
             }
-            context.fillStyle = 'hsl(141, 36%, ' + lightness + '%)';
+            context.fillStyle = 'hsl(231, 53.6, ' + lightness + '%)';
             context.closePath();      
             context.fill();
         };
