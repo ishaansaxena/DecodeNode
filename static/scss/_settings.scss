@@ -16,3 +16,7 @@ $grey_light: #B6B6B6;
     background-image: -moz-linear-gradient($from, $to);
     background-image: -o-linear-gradient($from, $to);
 }
+
+// Selection
+::selection {background: transparent;}
+::-moz-selection {background: transparent;}
