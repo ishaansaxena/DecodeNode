@@ -9,6 +9,10 @@ def index(request):
     context = {}
     return render(request, 'decode/index.html', context)
 
+def help():
+    context = {}
+    return render(request, 'decode/help.html', context)
+
 @login_required
 def play(request):
     current_user = User.objects.get(id=request.user.id)
