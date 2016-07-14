@@ -1,1 +1,95 @@
-@import "settings.scss";
+// Palette
+$primary_dark: #303F9F;
+$primary_medium: #3F51B5;
+$primary_light: #C5CAE9;
+$white: #FFFFFF;
+$accent: #009688;
+$black: #212121;
+$grey_dark: #727272;
+$grey_light: #B6B6B6;
+
+::selection {background: $accent!important;}
+::-moz-selection {background: $accent!important;}
+
+@keyframes disappear{
+    0%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.content{
+    padding: 80px 50px 70px 50px; 
+    background: $white;
+    color: $black;
+    text-align: center;
+    .level-id{
+        position: absolute;
+        top: 0; left: 100%;
+        width: 50px; height: 50px;
+        border-radius: 50%;
+        background: $primary_medium;
+        transform: translate(-125%, -50%);
+        span{
+            position: relative;
+            display: block;
+            color: $white;
+            font-size: 30px;
+            top: 10px;
+        }
+    }
+    p{
+        margin: 20px auto;
+        max-width: 250px;
+        .level-image{
+            position: relative;
+            width: 100%;
+        }
+    }
+    .btn{
+        display: inline-block;
+        min-width: 0;
+        margin-top: 5px;
+        margin-left: 3px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        float: right;
+        text-transform: none;
+        @media (max-width: 992px){
+            float: none;
+            display: block;
+            margin: auto auto;
+            font-size: 0.9rem;
+        }
+        &.blue{
+            color: $white;
+            background: $primary_dark!important;
+            &:hover{
+                color: $primary_dark;
+                background: transparent!important;
+            }
+        }
+        &.hidden{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            opacity: 0;
+        }
+    }
+    .error{
+        color: #b33647;
+    }
+    input[type='text']{
+        width: 200px;
+        display: inline-block;
+    }
+}
+
+.hint{
+    display: none;
+}
