@@ -40,6 +40,3 @@ def play(request):
             else:
                 context['errors'] = "A Server needs an Answer"
                 return render(request, 'decode/play.html', context)
-                #current_user.details.is_banned = True
-                #current_user.details.save()
-                #return render(request, 'decode/banned.html')
