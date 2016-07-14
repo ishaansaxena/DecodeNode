@@ -1,9 +1,27 @@
+::-moz-selection {
+  background: #009688 !important;
+}
+
 ::selection {
   background: #009688 !important;
 }
 
 ::-moz-selection {
   background: #009688 !important;
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes disappear {
@@ -47,6 +65,7 @@
   color: #b33647 !important;
   font-size: 0.85rem;
   right: 55px;
+  -webkit-animation: disappear 5s ease-in-out forwards;
   animation: disappear 5s ease-in-out forwards;
 }
 .content ul li {

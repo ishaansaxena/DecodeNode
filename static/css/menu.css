@@ -1,9 +1,27 @@
+::-moz-selection {
+  background: transparent;
+}
+
 ::selection {
   background: transparent;
 }
 
 ::-moz-selection {
   background: transparent;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes blink {
@@ -32,12 +50,19 @@
   cursor: pointer !important;
 }
 #menu #trigger:hover .poly {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
   transform: translateX(0px);
+  -webkit-box-shadow: 3px 3px 2px white;
   box-shadow: 3px 3px 2px white;
 }
 #menu #trigger:hover .rect {
+  -webkit-animation: none;
   animation: none;
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
   transform: translateY(0px);
+  -webkit-box-shadow: 3px 3px 2px white;
   box-shadow: 3px 3px 2px white;
 }
 #menu #trigger .rect, #menu #trigger .poly {
@@ -46,12 +71,19 @@
   cursor: pointer !important;
 }
 #menu #trigger .rect {
+  -webkit-animation: blink 0.85s ease-in-out infinite;
   animation: blink 0.85s ease-in-out infinite;
+  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
+  -webkit-transform: translateY(2px);
+  -ms-transform: translateY(2px);
   transform: translateY(2px);
 }
 #menu #trigger .poly {
+  -webkit-transition: all 0.25s ease;
   transition: all 0.25s ease;
+  -webkit-transform: translateX(-2px);
+  -ms-transform: translateX(-2px);
   transform: translateX(-2px);
 }
 #menu #trigger svg {
