@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}DecodeNode - Leaderboard{% endblock %}
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard.css' %}">
+{% endblock %}
+{% block content %}
+<div id="container">
+    <div class="content">
+        <div class="user-rank">
+            <span>Your rank: {{ user_rank }}</span>
+        </div>
+        <h1>Leaderboard</h1>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Institute</th>
+                <th>Level</th>
+            </tr>
+            {% for user in leaderboard %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ user.user.username }}</td>
+                    <td>{{ user.institute }}</td>
+                    <td>{{ user.current_level }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
