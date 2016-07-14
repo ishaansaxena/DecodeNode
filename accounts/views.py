@@ -13,3 +13,8 @@ def profile(request):
 def leaderboard(request):
     top = User.objects.extra(select={"level":"COALESCE(current_level.uid, current_level_time)"}, order_by=["-current_price"])[:]
     return render(request, 'accounts/leaderboard.html', {'leaderboard': top})
+
+
+def register(request):
+    context = {}
+    return render(request, 'accounts/register.html', context)
