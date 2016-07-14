@@ -1,21 +1,31 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Decode - Level {{ level.uid }}{% endblock %}
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/play.css' %}">
+{% endblock %}
 {% block content %}
-<h1>{{ level.title }}</h1>
-<p>
-    {{ level.text }}
-</p>
-<p>
-    {{ level.image }}
-</p>
-<p>
-    {% if errors %}
-        {{ errors }}
-    {% endif %}
-</p>
-<form action="{% url 'decode:play' %}" method="post">
-    {% csrf_token %}
-    {{ form.user_answer }}
-    <input type="submit" name="submit">
-</form>
-<p class="hint">{{ level.comment }}</p>
+<div id="container">
+    <div class="content">
+        <div class="level-id">
+            <span>{{ level.uid }}</span>
+        </div>
+        <h1 class="level-title">{{ level.title }}</h1>
+        <p class="level-text">{{ level.text }}</p>
+        <p class="level-image-outer">
+            {% if level.image %}
+                <img class="level-image" src="/{{ level.image }}">
+            {% endif %}
+        </p>
+        <form action="{% url 'decode:play' %}" method="post">
+            {% csrf_token %}
+            {{ form.user_answer }}
+            <input class="btn blue" type="submit" name="submit" value="Submit">
+        </form>
+        {% if errors %}
+        <p class="error">Error: {{ errors }}</p>
+        {% endif %}
+        <p class="hint">{{ level.comment }}</p>
+    </div>
+</div>
 {% endblock %}
