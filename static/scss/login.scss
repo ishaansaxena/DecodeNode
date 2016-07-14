@@ -1,0 +1,62 @@
+// Palette
+$primary_dark: #303F9F;
+$primary_medium: #3F51B5;
+$primary_light: #C5CAE9;
+$white: #FFFFFF;
+$accent: #009688;
+$black: #212121;
+$grey_dark: #727272;
+$grey_light: #B6B6B6;
+
+::selection {background: $accent!important;}
+::-moz-selection {background: $accent!important;}
+
+@keyframes disappear{
+    0%{
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.content{
+    padding: 80px 50px 70px 50px; 
+    background: $white;
+    color: $black;
+    h1{
+        margin: 0;
+        color: $black;
+    }
+    h6{
+        margin-bottom: 20px;
+    }
+    a{
+        color: $accent;
+    }
+    .btn{
+        &.blue{
+            margin-top: 5px;
+            color: $white;
+            background: $primary_dark!important;
+            &:hover{
+                color: $primary_dark;
+                background: transparent!important;
+            }
+        }
+    }
+    ul{
+        position: absolute;
+        color: #b33647!important;
+        font-size: 0.85rem;
+        right: 55px;
+        animation: disappear 5s ease-in-out forwards;
+        li{
+            display: block;
+            margin: 2px 0;
+        }
+    }
+}
