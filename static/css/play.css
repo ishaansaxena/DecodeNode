@@ -1,9 +1,27 @@
+::-moz-selection {
+  background: #009688 !important;
+}
+
 ::selection {
   background: #009688 !important;
 }
 
 ::-moz-selection {
   background: #009688 !important;
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes disappear {
@@ -33,6 +51,8 @@
   height: 50px;
   border-radius: 50%;
   background: #3f51b5;
+  -webkit-transform: translate(-125%, -50%);
+  -ms-transform: translate(-125%, -50%);
   transform: translate(-125%, -50%);
 }
 .content .level-id span {
