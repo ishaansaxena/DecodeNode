@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import UserData
 
 @login_required
 def profile(request):
@@ -11,8 +12,13 @@ def profile(request):
         pass
 
 def leaderboard(request):
-    top = User.objects.extra(select={"level":"COALESCE(current_level.uid, current_level_time)"}, order_by=["-current_price"])[:]
-    return render(request, 'accounts/leaderboard.html', {'leaderboard': top})
+    top = UserData.objects.order_by('-current_level', 'current_level_time')
+    rank = list(top).index(User.objects.get(username=request.user.username).details) + 1 
+    context = {
+        'leaderboard': top,
+        'user_rank': rank
+    }
+    return render(request, 'accounts/leaderboard.html', context)
 
 
 def register(request):
