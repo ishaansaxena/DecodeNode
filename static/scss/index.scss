@@ -19,17 +19,25 @@
     span{
         color: $accent;
     }
+    h1{
+        margin: auto auto;
+        width: 100%;
+        color: $white;
+        @media(max-width: 768px){
+            font-size: 2.25rem !important;
+        }
+    }
     .hr{
         display: inline-block;
         width: 50px;
         height: 1px;
         margin: 5px 0;
-        background: $grey_light;
+        background: $grey_dark;
     }
     p{
         width: 50%;
         margin: 0 0 0 auto;
-        color: $grey_light;    
+        color: lighten($grey_light, 100%)!important;    
         font-weight: 300;
         @media(max-width: 992px){
             width: 75%;
@@ -63,6 +71,8 @@
         bottom: 25px;
         .btn{
             display: inline-block;
+            width: auto;
+            margin: 2px auto;
         }
     }
 }
