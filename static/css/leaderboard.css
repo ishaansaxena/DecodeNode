@@ -1,0 +1,76 @@
+::-moz-selection {
+  background: transparent;
+}
+
+::selection {
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+body {
+  overflow: none;
+  overflow-x: hidden;
+}
+
+.content {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 100px auto;
+  padding: 70px 75px;
+  width: 800px;
+  color: #212121;
+  background: white;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.content .user-rank {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-align: center;
+  background: #3f51b5;
+  -webkit-transform: translate(-125%, -50%);
+  -ms-transform: translate(-125%, -50%);
+  transform: translate(-125%, -50%);
+}
+.content .user-rank span {
+  position: relative;
+  display: block;
+  color: white;
+  font-size: 16px;
+  white-space: pre;
+}
+@media (max-width: 992px) {
+  .content {
+    margin: 75px 50px;
+    padding: 70px 50px;
+    width: auto;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    margin: 75px 30px;
+    padding: 70px 30px;
+  }
+}
+.content h1 {
+  margin-bottom: 40px;
+}
+
+table {
+  width: 100%;
+  text-align: left;
+}
+table th {
+  font-weight: 600;
+}
+table th, table td {
+  padding: 5px 0;
+}
