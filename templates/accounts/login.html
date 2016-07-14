@@ -1,18 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
+{% block title %}DecodeNode - Login{% endblock %}
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
 {% block content %}
-    {% if user.is_authenticated %}
-        <p>
-            You're already logged in. <a href="{% url 'accounts:logout' %}">[Logout]</a>
-        </p>
-    {% else %}
-        {% if form.errors %}
-            {{ form.errors }}
+<div id="container">
+    <div class="content">
+        <h1>Login</h1>
+        <h6><a href="{% url 'accounts:register' %}">[Register]</a></h6>
+        {% if user.is_authenticated %}
+            <p>
+                You're already logged in. <a href="{% url 'accounts:logout' %}">[Logout]</a>
+            </p>
+        {% else %}
+            <form method="post" action="{% url 'accounts:login' %}">
+                {% csrf_token %}
+                {% if form.username.errors %}
+                    {{ form.username.errors }}
+                {% endif %}
+                {{ form.username }}
+                {% if form.password.errors %}
+                    {{ form.password.errors }}
+                {% endif %}
+                {{ form.password }}
+                <div class="button-group">
+                    <input class="btn blue" type="submit" value="login"/>
+                    <input type="hidden" name="next" value="/"/>
+                </div>
+            </form>
         {% endif %}
-        <form method="post" action="{% url 'accounts:login' %}">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="login"/>
-            <input type="hidden" name="next" value="/"/>
-        </form>
-    {% endif %}
+    </div>
+</div>
 {% endblock %}

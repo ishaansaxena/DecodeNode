@@ -11,18 +11,30 @@
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"/>
 <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.min.css' %}">
 <!-- External Scripts -->
     <script type="text/javascript" src="{% static 'js/canvas.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/jquery-bez.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jq.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bez.min.js' %}"></script>
 <!-- Assets -->
     {% block assets %}
     {% endblock %}
 </head>
 <body>
 <canvas id="bodyCanvas"></canvas>
+<!-- Menu -->
+<div id="menu">
+    <div id="trigger">
+        <svg x="0px" y="0px" viewBox="0 0 19.834 19.833" enable-background="new 0 0 19.834 19.833">
+            <g id="pclpun.tif">
+                <polygon class="poly" fill="#FFFFFF" points="1,5.281 1,7.188 6.062,10.219 1,13.188 1,15.188 9.531,10.234"/>
+                <rect class="rect" x="9.531" y="13.594" fill="#FFFFFF" width="8.531" height="1.719"/>
+            </g>
+        </svg>
+    </div> 
+</div>
 <!-- Main Content -->
     {% block content %}
     {% endblock %}

@@ -11,17 +11,18 @@
         <div class="hr"></div>
         <p>
         {% if user.is_authenticated %}
-            Hello <a href="{% url 'accounts:profile' %}">@{{ user.username }}</a>, Do you have it in you to dec0dE?
+            Hello <a href="{% url 'accounts:profile' %}">@{{ user.username }}</a>, do you have it in you to dec0dE?
         {% else %}
-
+            Hello friend, Do you have it in you to dec0dE?
         {% endif %}
         </p>
     </div>
     <div class="right-group">
         {% if user.is_authenticated %}
             <a class="btn white" href="{% url 'decode:play' %}">Play</a>
-            <a class="btn blue" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
             <a class="btn green" href="{% url 'accounts:profile' %}">Profile</a>
+            <a class="btn blue" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
+            <a class="btn cyan" href="{% url 'decode:help' %}">Help</a>
         {% else %}
             <a class="btn white" href="{% url 'decode:play' %}">Login</a>
             <a class="btn green" href="{% url 'decode:play' %}">Register</a>
