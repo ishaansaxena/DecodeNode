@@ -8,10 +8,27 @@ from decode.models import Level
 
 
 class UserData(models.Model):
-    user = models.OneToOneField(User, related_name='details', on_delete=models.CASCADE)
-    current_level = models.ForeignKey(Level, default=Level.objects.get(pk=1).pk)
-    current_level_time = models.DateTimeField(default=timezone.now)
-    profile_picture = models.ImageField(upload_to='static/assets/user_images/', blank=True)
+    user = models.OneToOneField(
+        User, 
+        related_name='details', 
+        on_delete=models.CASCADE
+    )
+    current_level = models.ForeignKey(
+        Level, 
+        default=Level.objects.get(pk=1).pk
+    )
+    current_level_time = models.DateTimeField(
+        default=timezone.now
+    )
+    profile_picture = models.ImageField(
+        upload_to='static/assets/user_images/',
+        blank=True
+    )
+    institute = models.CharField(
+        max_length=75,
+        default="",
+        null=True
+    )
     is_banned = models.BooleanField(default=False)
 
     def __str__(self):
@@ -24,7 +41,7 @@ class UserData(models.Model):
 
 def create_user_data(sender, instance, created, **kwargs):  
     if created:  
-       profile, created = UserData.objects.get_or_create(user=instance)  
+       profile, created = UserData.objects.get_or_create(user=instance)
 
 post_save.connect(create_user_data, User) 
         
