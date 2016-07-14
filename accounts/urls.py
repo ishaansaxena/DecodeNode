@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
-from .views import profile, leaderboard
+from .views import profile, leaderboard, register
+from .forms import LoginForm
 
 urlpatterns = [
     url(
@@ -8,7 +9,8 @@ urlpatterns = [
         auth_views.login,
         name = 'login',
         kwargs = {
-            'template_name': 'accounts/login.html'
+            'template_name': 'accounts/login.html',
+            'authentication_form': LoginForm,
         }
     ),
     url(
@@ -36,6 +38,7 @@ urlpatterns = [
             'template_name': 'accounts/password_change_success.html'
         }
     ),
+    url(r'^register/$', register, name='register'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^leaderboard/$', leaderboard, name='leaderboard')
 ]
