@@ -13,17 +13,17 @@
         <h1>Leaderboard</h1>
         <table>
             <tr>
-                <th>Rank</th>
-                <th>Username</th>
-                <th>Institute</th>
-                <th>Level</th>
+                <th class="table-rank">Rank</th>
+                <th class="table-name">Username</th>
+                <th class="table-inst">Institute</th>
+                <th class="table-level">Level</th>
             </tr>
             {% for user in leaderboard %}
                 <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ user.user.username }}</td>
-                    <td>{{ user.institute }}</td>
-                    <td>{{ user.current_level }}</td>
+                    <td class="table-rank">{{ forloop.counter }}</td>
+                    <td class="table-name">{{ user.user.username }}</td>
+                    <td class="table-inst">{{ user.institute }}</td>
+                    <td class="table-level">{{ user.current_level }}</td>
                 </tr>
             {% endfor %}
         </table>
