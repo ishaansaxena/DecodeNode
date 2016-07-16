@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .models import UserData
+from .forms import  RegistrationForm
+from decode.views import index
 
 @login_required
 def profile(request):
@@ -20,7 +23,20 @@ def leaderboard(request):
     }
     return render(request, 'accounts/leaderboard.html', context)
 
-
 def register(request):
-    context = {}
-    return render(request, 'accounts/register.html', context)
+    form = RegistrationForm(request.POST or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            new_user = User.objects.create_user(
+                email = form.cleaned_data['email'],
+                username = form.cleaned_data['username']
+            )
+            new_user.set_password(form.cleaned_data['password1'])
+            new_user.save()
+            new_user = authenticate(
+                username = form.cleaned_data['username'],
+                password = form.cleaned_data['password1'],
+            )
+            login(request, new_user)
+            return redirect('decode:index')
+    return render(request, 'accounts/register.html', {'form': form})
