@@ -1,26 +1,29 @@
 @import "settings.scss";
 
 @keyframes blink{
-    0%{
-        opacity: 1;
-    }
-    66%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
+    0%{opacity: 1;}
+    66%{opacity: 0;}
+    100%{opacity: 1;}
 }
 
 #menu{
     z-index: 3;
+    position: fixed;
+    width: 400px; height: 100%;
+    top: 0; left: -400px;
+    background: $black;
+    transition: all 0.25s ease-in-out;
+    &.visible{
+        left: 400px !important;
+    }
     #trigger{
         position: fixed;
         width: 32px; height: 24px;
         top: 15px; left: 20px;
-        z-index: 3;
+        z-index: 4;
         cursor: pointer !important;
         &:hover{
+            transform: scale(1.05);
             .poly{
                 transform: translateX(0px);
                 box-shadow: 3px 3px 2px $white;
@@ -33,7 +36,7 @@
         }
         .rect, .poly{
             display: block;
-            stroke: rgba($white, 0.5)!important;
+            fill: rgba($white, 0.95)!important;
             cursor: pointer !important;
         }
         .rect{
