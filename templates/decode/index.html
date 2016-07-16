@@ -22,10 +22,9 @@
             <a class="btn white" href="{% url 'decode:play' %}">Play</a>
             <a class="btn green" href="{% url 'accounts:profile' %}">Profile</a>
             <a class="btn blue" href="{% url 'accounts:leaderboard' %}">Leaderboard</a>
-            <a class="btn cyan" href="{% url 'decode:help' %}">Help</a>
         {% else %}
-            <a class="btn white" href="{% url 'decode:play' %}">Login</a>
-            <a class="btn green" href="{% url 'decode:play' %}">Register</a>
+            <a class="btn white" href="{% url 'accounts:login' %}">Login</a>
+            <a class="btn green" href="{% url 'accounts:register' %}">Register</a>
         {% endif %}
     </div>
 </div>
