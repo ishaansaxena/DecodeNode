@@ -12,15 +12,9 @@ $grey_light: #B6B6B6;
 ::-moz-selection {background: $accent!important;}
 
 @keyframes disappear{
-    0%{
-        opacity: 1;
-    }
-    80%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-    }
+    0%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 0;}
 }
 
 .content{
@@ -37,6 +31,9 @@ $grey_light: #B6B6B6;
         color: $accent;
     }
     .btn{
+        max-width: 400px;
+        width: auto;
+        padding: 10px 20px;
         &.blue{
             margin-top: 5px;
             color: $white;
