@@ -1,8 +1,13 @@
 @import "settings.scss";
 
 body{
-    overflow: none;
-    overflow-x: hidden; 
+    overflow: scroll!important;
+    overflow-x: hidden!important; 
+}
+
+#container{
+    height: auto;
+    min-height: 100vh;
 }
 
 .content{
@@ -47,10 +52,20 @@ body{
 table{
     width: 100%;
     text-align: left;
+    background: #f5f5f5;
     th{
         font-weight: 600;
     }
     th, td{
-        padding: 5px 0;
+        padding: 10px 10px;
+        vertical-align: middle;
+    }
+    tr:nth-child(even){
+        background: rgba($grey_light, 0.25);
+    }
+    @media (max-width: 768px){
+        .table-inst{
+            display: none;
+        }
     }
 }
