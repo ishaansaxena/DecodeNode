@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}DecodeNode - Register{% endblock %}
+{% block assets %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
+{% block content %}
+<div id="container">
+    <div class="content">
+        <h1>Register</h1>
+        <h6><a href="{% url 'accounts:login' %}">[Login]</a></h6>
+        {% if user.is_authenticated %}
+            <p>
+                You're already logged in. <a href="{% url 'accounts:logout' %}">[Logout]</a>
+            </p>
+        {% else %}
+            <form method="post" action="{% url 'accounts:register' %}">
+                {% csrf_token %}
+                {% if form.username.errors %}
+                    {{ form.username.errors }}
+                {% endif %}
+                {{ form.username }}
+                {% if form.email.errors %}
+                    {{ form.email.errors }}
+                {% endif %}
+                {{ form.email }}
+                {% if form.password1.errors %}
+                    {{ form.password1.errors }}
+                {% endif %}
+                {{ form.password1 }}
+                {% if form.password2.errors %}
+                    {{ form.password2.errors }}
+                {% endif %}
+                {{ form.password2 }}
+                <div class="button-group">
+                    <input class="btn blue" type="submit" value="Register"/>
+                    <input type="hidden" name="next" value="/"/>
+                </div>
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
