@@ -26,17 +26,22 @@
 <canvas id="bodyCanvas"></canvas>
 <!-- Menu -->
 <div id="menu">
-    <div id="trigger">
-        <svg x="0px" y="0px" viewBox="0 0 19.834 19.833" enable-background="new 0 0 19.834 19.833">
-            <g id="pclpun.tif">
-                <polygon class="poly" fill="#FFFFFF" points="1,5.281 1,7.188 6.062,10.219 1,13.188 1,15.188 9.531,10.234"/>
-                <rect class="rect" x="9.531" y="13.594" fill="#FFFFFF" width="8.531" height="1.719"/>
+    <div class="trigger" id="trigger">
+        <svg class="trigger" x="0px" y="0px" viewBox="0 0 19.834 19.833" enable-background="new 0 0 19.834 19.833">
+            <g class="trigger" id="pclpun.tif">
+                <polygon class="poly trigger" points="1,5.281 1,7.188 6.062,10.219 1,13.188 1,15.188 9.531,10.234"/>
+                <rect class="rect trigger" x="9.531" y="13.594" width="8.531" height="1.719"/>
             </g>
         </svg>
-    </div> 
+    </div>
+    <div id="menu-content">
+        <div class="trigger-close"></div>
+    </div>
 </div>
 <!-- Main Content -->
     {% block content %}
     {% endblock %}
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
 </body>
 </html>
