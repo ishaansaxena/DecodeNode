@@ -51,6 +51,11 @@
 .content a {
   color: #009688;
 }
+.content .btn {
+  max-width: 400px;
+  width: auto;
+  padding: 10px 20px;
+}
 .content .btn.blue {
   margin-top: 5px;
   color: white;
