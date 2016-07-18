@@ -1,11 +1,42 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.models import User
+from .models import UserData
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("first_name", "last_name")
+
+    def __init__(self, *args, **kwargs):
+        super(UserEditForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields:
+            field = self.fields.get(field_name)  
+            if field:
+                widget = field.widget
+                if type(widget) is forms.TextInput:
+                    pass
+                elif type(widget) is forms.Textarea:
+                    pass
+                widget.attrs['placeholder'] = field.label
 
 
-class ProfileForm(forms.Form):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    profile_picture = forms.ImageField()
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserData
+        fields = ("institute", "profile_picture")
+
+    def __init__(self, *args, **kwargs):
+        super(UserProfileForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields:
+            field = self.fields.get(field_name)  
+            if field:
+                widget = field.widget
+                if type(widget) is forms.TextInput:
+                    pass
+                elif type(widget) is forms.Textarea:
+                    pass
+                widget.attrs['placeholder'] = field.label
 
 
 class LoginForm(AuthenticationForm):
@@ -26,7 +57,6 @@ class LoginForm(AuthenticationForm):
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True, label='Email')
-    # institute = forms.CharField(label='Institute')
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)

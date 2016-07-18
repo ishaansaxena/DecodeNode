@@ -28,7 +28,7 @@ urlpatterns = [
         name = 'password_change',
         kwargs = {
             'template_name': 'accounts/password_change_form.html',
-            'post_change_redirect': 'users:password_change_success',
+            'post_change_redirect': 'accounts:password_change_success',
         }
     ),
     url(
@@ -40,5 +40,6 @@ urlpatterns = [
         }
     ),
     url(r'^register/$', views.register, name='register'),
-    url(r'^leaderboard/$', views.leaderboard, name='leaderboard')
+    url(r'^leaderboard/$', views.leaderboard, name='leaderboard'),
+    url(r'^(?P<profile_username>[-\w]+)/$', views.peer_profile, name='profile_view')
 ]

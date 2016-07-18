@@ -14,14 +14,11 @@
   display: inline-block;
   width: auto;
 }
-.btn.blue {
+.btn.blue:hover {
   color: #303f9f;
 }
-.btn.green {
+.btn.green:hover {
   color: #009688;
-}
-.btn:hover {
-  color: white;
 }
 
 #container > .content {
@@ -54,7 +51,7 @@
 }
 .profile-section .username {
   font-weight: 300;
-  font-size: 2.75rem;
+  font-size: 2.25rem !important;
 }
 .profile-section .email {
   font-size: 1rem !important;
@@ -64,6 +61,16 @@
 }
 .profile-section .name, .profile-section .institute, .profile-section .buttons, .profile-section .level {
   margin-top: 25px;
+}
+.profile-section .name span {
+  display: block;
+  font-size: 1.25rem;
+}
+.profile-section .institute span {
+  display: block;
+  -webkit-transform: translateY(-13px);
+  -ms-transform: translateY(-13px);
+  transform: translateY(-13px);
 }
 .profile-section .level {
   font-size: 1.5rem;
@@ -103,8 +110,20 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.profile-picture:hover input {
+  opacity: 1;
+}
 .profile-picture img {
   width: 100%;
+  background: #c5cae9;
+}
+.profile-picture input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 .profile-picture .rank {
   position: absolute;

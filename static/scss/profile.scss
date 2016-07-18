@@ -3,14 +3,11 @@
 .btn{
     display: inline-block;
     width: auto;
-    &.blue{
+    &.blue:hover{
         color: $primary-dark;
     }
-    &.green{
+    &.green:hover{
         color: $accent;
-    }
-    &:hover{
-        color: $white;
     }
 }
 
@@ -37,7 +34,7 @@
     }
     .username{
         font-weight: 300;
-        font-size: 2.75rem;
+        font-size: 2.25rem!important;
     }
     .email{
         font-size: 1rem !important;
@@ -47,6 +44,18 @@
     }
     .name, .institute, .buttons, .level{
         margin-top: 25px;
+    }
+    .name{
+        span{
+            display: block;
+            font-size: 1.25rem;
+        }
+    }
+    .institute{
+        span{
+            display: block;
+            transform: translateY(-13px);
+        }
     }
     .level{
         font-size: 1.5rem;
@@ -77,8 +86,20 @@
     width: 200px;
     z-index: 4;
     transform: translateY(-50%);
+    &:hover{
+        input{
+            opacity: 1;
+        }
+    }
     img{
         width: 100%;
+        background: $primary-light;
+    }
+    input{
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        transition: all 0.25s ease;
     }
     .rank{
         position: absolute;
