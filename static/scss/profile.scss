@@ -1,0 +1,137 @@
+@import "settings.scss";
+
+.btn{
+    display: inline-block;
+    width: auto;
+    &.blue{
+        color: $primary-dark;
+    }
+    &.green{
+        color: $accent;
+    }
+    &:hover{
+        color: $white;
+    }
+}
+
+#container > .content{
+    background: $white;
+    padding: 70px 50px 70px 0;
+    @media(max-width: 600px){
+        padding: 70px 40px;
+    }
+}
+
+.profile-section{
+    position: relative;
+    width: auto;
+    margin: 0; padding: 0;
+    padding-left: 10px;
+    margin-left: 275px;
+    color: $black;
+    text-align: left;
+    .content{
+        position: relative;
+        top: 0; left: 0;
+        transform: translate(0, 0);
+    }
+    .username{
+        font-weight: 300;
+        font-size: 2.75rem;
+    }
+    .email{
+        font-size: 1rem !important;
+        a{
+            color: $accent;
+        }
+    }
+    .name, .institute, .buttons, .level{
+        margin-top: 25px;
+    }
+    .level{
+        font-size: 1.5rem;
+    }
+    .level-badge{
+        display: inline-block;
+        height: 1rem;
+        width: 1.5rem;
+        padding: 0.25rem 0;
+        text-align: center;
+        font-size: 1rem;
+        border-radius: 50%;
+        background: $accent;
+        transform: translateY(-0.25rem);
+        color: $white;
+    }
+    @media(max-width: 768px){
+        margin-left: 225px;
+    }
+    @media(max-width: 600px){
+        margin-left: 0;
+    }
+}
+
+.profile-picture{
+    position: absolute;
+    left: 50px; top: 50%;
+    width: 200px;
+    z-index: 4;
+    transform: translateY(-50%);
+    img{
+        width: 100%;
+    }
+    .rank{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -20px);
+        font-size: 16px;
+        padding: 10px 20px; 
+        border-radius: 25px;
+        text-align: center;
+        background: $primary-dark;
+        color: $white;
+        white-space: pre;
+    }
+    .details{
+        margin-top: -3px;
+        padding: 25px 0 15px 0;
+        background: $primary-medium;
+    }
+    span{
+        display: block;
+        margin: 0px 0px;
+        padding: 10px 15px;
+        width: auto;
+        //background: rgba($black, 1);
+        color: $white;
+        font-size: 0.9rem;
+        label{
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: darken($primary-dark, 10%);
+            font-weight: 400;
+        }
+    }
+    @media(max-width: 768px){
+        width: 150px;
+        .rank{
+            border-radius: 0;
+            width: 110px;
+        }
+    }
+    @media(max-width: 600px){
+        display: none;
+    }
+}
+
+input[type="text"]{
+    background: rgba($black, 0.15);
+    padding: 5px 15px;
+    color: $black;
+    font-weight: 400;
+    border: none;
+    &::placeholder{
+        color: $grey_dark;
+    }
+}
