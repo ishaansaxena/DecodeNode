@@ -59,12 +59,9 @@
 }
 .content .btn.blue {
   margin-top: 5px;
-  color: white;
-  background: #303f9f !important;
 }
 .content .btn.blue:hover {
   color: #303f9f;
-  background: transparent !important;
 }
 .content ul {
   position: absolute;

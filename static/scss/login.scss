@@ -37,11 +37,8 @@ $grey_light: #B6B6B6;
         padding: 10px 20px;
         &.blue{
             margin-top: 5px;
-            color: $white;
-            background: $primary_dark!important;
             &:hover{
                 color: $primary_dark;
-                background: transparent!important;
             }
         }
     }
