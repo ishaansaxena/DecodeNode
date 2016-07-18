@@ -10,17 +10,24 @@ from decode.views import index
 def profile(request):
     current_user = User.objects.get(id=request.user.id)
     if request.method == 'GET':
-        return render(request, 'accounts/profile.html', {'user': current_user})
+        top = UserData.objects.order_by('-current_level', 'current_level_time')
+        rank = list(top).index(User.objects.get(username=request.user.username).details) + 1
+        context = {
+            'user': current_user,
+            'user_rank': rank
+        }
+        return render(request, 'accounts/profile.html', context)
     else:
         pass
 
 def leaderboard(request):
     top = UserData.objects.order_by('-current_level', 'current_level_time')
-    rank = list(top).index(User.objects.get(username=request.user.username).details) + 1 
     context = {
         'leaderboard': top,
-        'user_rank': rank
     }
+    if request.user.is_authenticated():
+        rank = list(top).index(User.objects.get(username=request.user.username).details) + 1 
+        context['user_rank'] = rank
     return render(request, 'accounts/leaderboard.html', context)
 
 def register(request):
