@@ -34,15 +34,18 @@
         </svg>
     </div>
     <div id="menu-content">
-        <div class="menu-header" data="/{{ user.details.profile_picture }}">
-            <div class="header-content">
-                {% if user.is_authenticated %}
-                    <h3>@{{ user.username }}</h3>
+        <div class="menu-header">
+            {% if user.is_authenticated %}
+                <img src="/{{ user.details.profile_picture }}">
+                <div class="header-content">
+                    <h3>@{{ user.username|truncatechars:16 }}</h3>
                     <h6>On level: {{ user.details.current_level }}</h6>
-                {% else %}
+                </div>
+            {% else %}
+                <div class="header-content">
                     <h3>Welcome</h3>
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
         </div>
         <div class="menu-items">
             <ul>
