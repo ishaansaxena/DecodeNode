@@ -1,9 +1,10 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
-from .views import profile, leaderboard, register
+from . import views
 from .forms import LoginForm
 
 urlpatterns = [
+    url(r'^$', views.profile, name='profile'),
     url(
         r'^login/$',
         auth_views.login,
@@ -38,7 +39,6 @@ urlpatterns = [
             'template_name': 'accounts/password_change_success.html'
         }
     ),
-    url(r'^register/$', register, name='register'),
-    url(r'^profile/$', profile, name='profile'),
-    url(r'^leaderboard/$', leaderboard, name='leaderboard')
+    url(r'^register/$', views.register, name='register'),
+    url(r'^leaderboard/$', views.leaderboard, name='leaderboard')
 ]
