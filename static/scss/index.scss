@@ -76,3 +76,37 @@
         }
     }
 }
+
+
+.btn{
+    &.white{
+        color: $white;
+        background: rgba($white, 0.125);
+        &:hover{
+            background: rgba($white, 0.9);
+            color: $black;
+        }
+    }
+    &.green{
+        border: solid 2px rgba($accent, 0.75);
+        background: rgba($accent, 0.125);
+        &:hover{
+            background: rgba($accent, 0.9);
+        }
+    }
+    &.blue{
+        border: solid 2px rgba($primary_medium, 0.75);
+        background: rgba($primary_medium, 0.125);
+        &:hover{
+            background: rgba($primary_medium, 0.9);
+        }
+    }
+    &.cyan{
+        border: solid 2px rgba(lighten($accent, 30%), 0.75);
+        background: rgba(lighten($accent, 30%), 0.125);
+        &:hover{
+            color: $black;
+            background: rgba(lighten($accent, 30%), 0.9);
+        }
+    }
+}
