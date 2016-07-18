@@ -45,6 +45,11 @@ body {
   -ms-transform: translate(-125%, -50%);
   transform: translate(-125%, -50%);
 }
+.content .user-rank a {
+  text-decoration: none;
+  color: white;
+  white-space: pre;
+}
 .content .user-rank span {
   position: relative;
   display: block;
@@ -61,8 +66,9 @@ body {
 }
 @media (max-width: 768px) {
   .content {
-    margin: 75px 30px;
+    margin: 75px 20px;
     padding: 70px 30px;
+    width: auto;
   }
 }
 .content h1 {

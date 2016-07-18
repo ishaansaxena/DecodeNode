@@ -19,6 +19,11 @@ body{
         text-align: center;
         background: $primary_medium;
         transform: translate(-125%, -50%);
+        a{
+            text-decoration: none;
+            color: $white;
+            white-space: pre;
+        }
         span{
             position: relative;
             display: block;
@@ -41,8 +46,9 @@ body{
         width: auto;
     }
     @media (max-width: 768px){
-        margin: 75px 30px;
+        margin: 75px 20px;
         padding: 70px 30px;
+        width: auto;
     }
     h1{
         margin-bottom: 40px;
