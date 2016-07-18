@@ -8,7 +8,11 @@
 <div id="container">
     <div class="content">
         <div class="user-rank">
-            <span>Your rank: {{ user_rank }}</span>
+            {% if user_rank %}
+                <span>Your rank: {{ user_rank }}</span>
+            {% else %}
+                <span><a href="{% url 'accounts:login' %}">Login to Play</a></span>
+            {% endif %}
         </div>
         <h1>Leaderboard</h1>
         <table>
