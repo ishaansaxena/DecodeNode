@@ -100,3 +100,34 @@
     margin: 2px auto;
   }
 }
+
+.btn.white {
+  color: white;
+  background: rgba(255, 255, 255, 0.125);
+}
+.btn.white:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #212121;
+}
+.btn.green {
+  border: solid 2px rgba(0, 150, 136, 0.75);
+  background: rgba(0, 150, 136, 0.125);
+}
+.btn.green:hover {
+  background: rgba(0, 150, 136, 0.9);
+}
+.btn.blue {
+  border: solid 2px rgba(63, 81, 181, 0.75);
+  background: rgba(63, 81, 181, 0.125);
+}
+.btn.blue:hover {
+  background: rgba(63, 81, 181, 0.9);
+}
+.btn.cyan {
+  border: solid 2px rgba(48, 255, 236, 0.75);
+  background: rgba(48, 255, 236, 0.125);
+}
+.btn.cyan:hover {
+  color: #212121;
+  background: rgba(48, 255, 236, 0.9);
+}
