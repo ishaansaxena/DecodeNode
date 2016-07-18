@@ -10,6 +10,11 @@ $(document).ready(function(){
         }
     });
     $('.menu-header').each(function(){
-        console.log($(this).attr('data'));
+        var image = "linear-gradient(rgba($accent, 0.85), rgba($accent, 0.85)), url('" + $(this).attr('data') + "')";
+        $(this).css({
+            'background': image
+        });
+        console.log(image);
     });
+    background: linear-gradient(rgba($accent, 0.85), rgba($accent, 0.85));
 });

@@ -146,15 +146,16 @@
   top: 0;
   left: 0;
   margin: 0;
-  padding: 10px 20px;
+  padding: 0;
   width: auto;
   height: 200px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 150, 136, 0.85)), to(rgba(0, 150, 136, 0.85))), url("/static/assets/user_images/2015-01-09_1420814691.jpg");
-  background: -webkit-linear-gradient(rgba(0, 150, 136, 0.85), rgba(0, 150, 136, 0.85)), url("/static/assets/user_images/2015-01-09_1420814691.jpg");
-  background: linear-gradient(rgba(0, 150, 136, 0.85), rgba(0, 150, 136, 0.85)), url("/static/assets/user_images/2015-01-09_1420814691.jpg");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 150, 136, 0.85)), to(rgba(0, 150, 136, 0.85)));
+  background: -webkit-linear-gradient(rgba(0, 150, 136, 0.85), rgba(0, 150, 136, 0.85));
+  background: linear-gradient(rgba(0, 150, 136, 0.85), rgba(0, 150, 136, 0.85));
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
+  overflow: hidden;
 }
 #menu-content .menu-header .header-content {
   position: absolute;
@@ -166,6 +167,17 @@
 #menu-content .menu-header .header-content h6 {
   color: #ddd;
   font-size: 1rem !important;
+}
+#menu-content .menu-header img {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  opacity: 0.25;
 }
 #menu-content .menu-items {
   position: relative;
