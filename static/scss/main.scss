@@ -63,7 +63,7 @@ body{
     font-weight: 400;
     font-size: 0.85rem;
     text-decoration: none;
-    background: rgba($white, 0.125);
+    background: rgba($white, 0.9);
     color: $white;
     outline: none;
     box-shadow: none;
@@ -76,37 +76,35 @@ body{
     transition: all 0.25s ease-in-out;
     cursor: pointer;
     &:hover{
-        border: solid 2px rgba($white, 0.75) !important;
-        background: rgba($white, 0.9);
+        background: rgba($white, 0.125);
     }
     &.white{
+        color: $black;
         &:hover{
-            color: $black;
+            color: $white;
         }
     }
     &.green{
         border: solid 2px rgba($accent, 0.75);
-        background: rgba($accent, 0.125);
+        background: rgba($accent, 0.9);
         &:hover{
-            border: solid 2px rgba($accent, 0.75) !important;
-            background: rgba($accent, 0.9);
+            background: rgba($accent, 0.125);
         }
     }
     &.blue{
         border: solid 2px rgba($primary_medium, 0.75);
-        background: rgba($primary_medium, 0.125);
+        background: rgba($primary_medium, 0.9);
         &:hover{
-            border: solid 2px rgba($primary_medium, 0.75) !important;
-            background: rgba($primary_medium, 0.9);
+            background: rgba($primary_medium, 0.125);
         }
     }
     &.cyan{
+        color: $black;
         border: solid 2px rgba(lighten($accent, 30%), 0.75);
-        background: rgba(lighten($accent, 30%), 0.125);
+        background: rgba(lighten($accent, 30%), 0.9);
         &:hover{
-            color: $black;
-            border: solid 2px rgba(lighten($accent, 30%), 0.75) !important;
-            background: rgba(lighten($accent, 30%), 0.9);
+            color: $white;
+            background: rgba(lighten($accent, 30%), 0.125);
         }
     }
 }

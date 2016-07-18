@@ -101,7 +101,7 @@ body {
   font-weight: 400;
   font-size: 0.85rem;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.125);
+  background: rgba(255, 255, 255, 0.9);
   color: white;
   outline: none;
   -webkit-box-shadow: none;
@@ -117,36 +117,36 @@ body {
   cursor: pointer;
 }
 .btn:hover {
-  border: solid 2px rgba(255, 255, 255, 0.75) !important;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.125);
+}
+.btn.white {
+  color: #212121;
 }
 .btn.white:hover {
-  color: #212121;
+  color: white;
 }
 .btn.green {
   border: solid 2px rgba(0, 150, 136, 0.75);
-  background: rgba(0, 150, 136, 0.125);
+  background: rgba(0, 150, 136, 0.9);
 }
 .btn.green:hover {
-  border: solid 2px rgba(0, 150, 136, 0.75) !important;
-  background: rgba(0, 150, 136, 0.9);
+  background: rgba(0, 150, 136, 0.125);
 }
 .btn.blue {
   border: solid 2px rgba(63, 81, 181, 0.75);
-  background: rgba(63, 81, 181, 0.125);
-}
-.btn.blue:hover {
-  border: solid 2px rgba(63, 81, 181, 0.75) !important;
   background: rgba(63, 81, 181, 0.9);
 }
+.btn.blue:hover {
+  background: rgba(63, 81, 181, 0.125);
+}
 .btn.cyan {
+  color: #212121;
   border: solid 2px rgba(48, 255, 236, 0.75);
-  background: rgba(48, 255, 236, 0.125);
+  background: rgba(48, 255, 236, 0.9);
 }
 .btn.cyan:hover {
-  color: #212121;
-  border: solid 2px rgba(48, 255, 236, 0.75) !important;
-  background: rgba(48, 255, 236, 0.9);
+  color: white;
+  background: rgba(48, 255, 236, 0.125);
 }
 
 input[type='text'],
