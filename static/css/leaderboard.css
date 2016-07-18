@@ -11,7 +11,7 @@
 }
 
 body {
-  overflow: scroll !important;
+  overflow: auto !important;
   overflow-x: hidden !important;
 }
 
@@ -20,7 +20,7 @@ body {
   min-height: 100vh;
 }
 
-.content {
+#container > .content {
   position: relative;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@ body {
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
 }
-.content .user-rank {
+#container > .content .user-rank {
   position: absolute;
   top: 0;
   left: 100%;
@@ -45,12 +45,12 @@ body {
   -ms-transform: translate(-125%, -50%);
   transform: translate(-125%, -50%);
 }
-.content .user-rank a {
+#container > .content .user-rank a {
   text-decoration: none;
   color: white;
   white-space: pre;
 }
-.content .user-rank span {
+#container > .content .user-rank span {
   position: relative;
   display: block;
   color: white;
@@ -58,40 +58,191 @@ body {
   white-space: pre;
 }
 @media (max-width: 992px) {
-  .content {
-    margin: 75px 50px;
+  #container > .content {
+    margin: 75px auto;
     padding: 70px 50px;
-    width: auto;
+    width: 75%;
   }
 }
 @media (max-width: 768px) {
-  .content {
-    margin: 75px 20px;
+  #container > .content {
+    margin: 75px auto;
     padding: 70px 30px;
-    width: auto;
+    width: 80%;
   }
 }
-.content h1 {
+@media (max-width: 480px) {
+  #container > .content {
+    margin: 55px auto 10px auto;
+    padding: 70px 0;
+    width: 100%;
+  }
+}
+#container > .content h1 {
   margin-bottom: 40px;
 }
 
-table {
+.card {
+  position: relative;
+  display: table;
   width: 100%;
+  height: 40px;
+  background: #eee;
+  margin: 5px 0;
+  border-radius: 0px;
+}
+.card.legend {
+  background: #212121;
+}
+.card.legend span, .card.legend h3, .card.legend h4 {
+  color: white !important;
+}
+.card.legend .card-media {
+  background: transparent;
+}
+.card .card-media {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  background: #b6b6b6;
+  border-radius: 0px 0 0 0px;
+}
+.card .card-media .level {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: auto auto;
+  top: 5px;
+  background: #727272;
+  border-radius: 50%;
+}
+.card .card-media .level span {
+  position: relative;
+  font-size: 20px;
+  top: 5px;
+  color: white;
+}
+.card .card-content {
+  position: relative;
+  margin: 0 0 0 120px;
+  padding: 5px 10px;
+  width: auto;
+  height: 30px;
+  color: #212121;
   text-align: left;
-  background: #f5f5f5;
 }
-table th {
-  font-weight: 600;
+.card .card-content .left, .card .card-content .right {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-table th, table td {
-  padding: 10px 10px;
-  vertical-align: middle;
+.card .card-content .left {
+  left: 15px;
 }
-table tr:nth-child(even) {
-  background: rgba(182, 182, 182, 0.25);
+.card .card-content .right {
+  right: 10px;
+  float: right;
 }
-@media (max-width: 768px) {
-  table .table-inst {
+@media (max-width: 400px) {
+  .card .card-content .right {
     display: none;
   }
+}
+.card .card-content .level span {
+  margin-right: 5px;
+  font-size: 20px;
+  color: #727272;
+  font-weight: 600;
+}
+.card .card-content h3 {
+  font-size: 20px !important;
+}
+.card .card-content h4 {
+  font-size: 12px !important;
+  font-weight: 300;
+}
+.card.topten {
+  height: 60px;
+  background: #eaecf7;
+}
+.card.topten .card-media {
+  height: 60px;
+  background: #606fc7;
+}
+.card.topten .card-media .level {
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  background: #495ac8;
+}
+.card.topten .card-media .level span {
+  top: 10px;
+}
+.card.topten .card-content {
+  height: 50px;
+}
+.card.topten .card-content h3 {
+  font-size: 25px !important;
+}
+.card.topten .card-content h4 {
+  font-size: 16px !important;
+}
+.card.topten .card-content .level span {
+  color: #009688;
+}
+.card.first {
+  height: 90px;
+  background: #f8eebe;
+}
+.card.first .card-media {
+  height: 90px;
+  background: #e8ca35;
+}
+.card.first .card-media .level {
+  top: 25px;
+  background: #d2b318;
+}
+.card.first .card-content {
+  height: 80px;
+}
+.card.first .card-content .level span {
+  color: #d2b318;
+}
+.card.second {
+  height: 80px;
+  background: #dddddd;
+}
+.card.second .card-media {
+  height: 80px;
+  background: #aaaaaa;
+}
+.card.second .card-media .level {
+  top: 20px;
+  background: #909090;
+}
+.card.second .card-content {
+  height: 70px;
+}
+.card.second .card-content .level span {
+  color: #909090;
+}
+.card.third {
+  height: 70px;
+  background: #f0d9c1;
+}
+.card.third .card-media {
+  height: 70px;
+  background: #cd7f32;
+}
+.card.third .card-media .level {
+  top: 15px;
+  background: #a46628;
+}
+.card.third .card-content {
+  height: 60px;
+}
+.card.third .card-content .level span {
+  color: #a46628;
 }

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block title %}DecodeNode - Leaderboard{% endblock %}
 {% block assets %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard.css' %}">
@@ -15,22 +16,42 @@
             {% endif %}
         </div>
         <h1>Leaderboard</h1>
-        <table>
-            <tr>
-                <th class="table-rank">Rank</th>
-                <th class="table-name">Username</th>
-                <th class="table-inst">Institute</th>
-                <th class="table-level">Level</th>
-            </tr>
-            {% for user in leaderboard %}
-                <tr>
-                    <td class="table-rank">{{ forloop.counter }}</td>
-                    <td class="table-name">{{ user.user.username }}</td>
-                    <td class="table-inst">{{ user.institute }}</td>
-                    <td class="table-level">{{ user.current_level }}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <div class="card legend">
+            <div class="card-media">
+                <div class="content">
+                    <span>Rank</span> 
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="left">
+                    <span>Username/Institute</span>
+                </div>
+                <div class="right">
+                    <span>Level</span>
+                </div>
+            </div>
+        </div>
+        {% for user, class in leaderboard %}
+        <div class="card {{ class }}">
+            <div class="card-media">
+                <div class="level">
+                    <span>{{ forloop.counter }}</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="left">
+                    <h3>{{ user.user.username|truncatechars:30 }}</h3>
+                    <h4>{{ user.institute }}</h4>
+                </div>
+                <div class="right">
+                    <div class="level">
+                        <span>{{user.current_level}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
+<script type="text/javascript" src="{% static 'js/leaderboard.js' %}"></script>
 {% endblock %}

@@ -1,7 +1,7 @@
 @import "settings.scss";
 
 body{
-    overflow: scroll!important;
+    overflow: auto!important;
     overflow-x: hidden!important; 
 }
 
@@ -10,7 +10,7 @@ body{
     min-height: 100vh;
 }
 
-.content{
+#container > .content{
     .user-rank{
         position: absolute;
         top: 0; left: 100%;
@@ -41,37 +41,181 @@ body{
     background: $white;
     transform: translate(0, 0);
     @media (max-width: 992px){
-        margin: 75px 50px;
+        margin: 75px auto;
         padding: 70px 50px;
-        width: auto;
+        width: 75%;
     }
     @media (max-width: 768px){
-        margin: 75px 20px;
+        margin: 75px auto;
         padding: 70px 30px;
-        width: auto;
+        width: 80%;
+    }
+    @media (max-width: 480px){
+        margin: 55px auto 10px auto;
+        padding: 70px 0;
+        width: 100%;
     }
     h1{
         margin-bottom: 40px;
     }
 }
 
-table{
-    width: 100%;
-    text-align: left;
-    background: #f5f5f5;
-    th{
-        font-weight: 600;
+.card{
+    position: relative;
+    display: table;
+    width: 100%; height: 40px;
+    background: #eee;
+    margin: 5px 0;
+    border-radius: 0px;
+    &.legend{
+        span, h3, h4 {
+            color: $white !important;
+        }
+        background: $black;
+        .card-media{
+            background: transparent;
+        }
     }
-    th, td{
-        padding: 10px 10px;
-        vertical-align: middle;
+    .card-media{
+        position: absolute;
+        width: 120px; height: 40px;
+        background: $grey_light;
+        border-radius: 0px 0 0 0px;
+        .level{
+            position: relative;
+            width: 30px; height: 30px;
+            margin: auto auto;
+            top: 5px;
+            background: $grey_dark;
+            border-radius: 50%;
+            span{
+                position: relative;
+                font-size: 20px;
+                top: 5px;
+                color: $white;
+            }
+        }
     }
-    tr:nth-child(even){
-        background: rgba($grey_light, 0.25);
+    .card-content{
+        position: relative;
+        margin: 0 0 0 120px;
+        padding: 5px 10px;
+        width: auto;
+        height: 30px;
+        color: $black;
+        text-align: left;
+        .left, .right{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .left{
+            left: 15px;
+        }
+        .right{
+            right: 10px;
+            float: right;
+            @media (max-width: 400px){
+                display: none;
+            }
+        }
+        .level{
+            span{
+                margin-right: 5px;
+                font-size: 20px;
+                color: $grey_dark;
+                font-weight: 600;
+            }
+        }
+        h3{
+            font-size: 20px!important;
+        }
+        h4{
+            font-size: 12px!important;
+            font-weight: 300;
+        }
     }
-    @media (max-width: 768px){
-        .table-inst{
-            display: none;
+    &.topten{
+        height: 60px;
+        background: lighten($primary_light, 10%);
+        .card-media{
+            height: 60px;
+            background: lighten($primary_medium, 10%);
+            .level{
+                width: 40px;
+                height: 40px;
+                top: 10px;
+                background: lighten($primary_dark, 13%);
+                span{
+                    top: 10px;
+                }
+            }
+        }
+        .card-content{
+            height: 50px;
+            h3{
+                font-size: 25px!important;
+            }
+            h4{
+                font-size: 16px!important;
+            }
+            .level span{
+                color: $accent;
+            }
+        }
+    }
+    &.first{
+        height: 90px;
+        background: lighten(#e8ca35, 30%);
+        .card-media{
+            height: 90px;
+            background: lighten(#e8ca35, 0%);
+            .level{
+                top: 25px;
+                background: darken(#e8ca35, 10%);
+            }
+        }
+        .card-content {
+            height: 80px;
+            .level span{
+                color: darken(#e8ca35, 10%);
+            }
+        }
+    }
+    &.second{
+        height: 80px;
+        background: lighten(#aaa, 20%);
+        .card-media{
+            height: 80px;
+            background: lighten(#aaa, 0%);
+            .level{
+                top: 20px;
+                background: darken(#aaa, 10%);
+            }
+        }
+        .card-content {
+            height: 70px;
+            .level span{
+                color: darken(#aaa, 10%);
+            }
+        }
+    }
+    &.third{
+        height: 70px;
+        background: lighten(#cd7f32, 35%);
+        .card-media{
+            height: 70px;
+            background: lighten(#cd7f32, 0%);
+            .level{
+                top: 15px;
+                background: darken(#cd7f32, 10%);
+            }
+        }
+        .card-content {
+            height: 60px;
+            .level span{
+                color: darken(#cd7f32, 10%);
+            }
         }
     }
 }
