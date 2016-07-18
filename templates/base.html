@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.min.css' %}">
 <!-- External Scripts -->
-    <script type="text/javascript" src="{% static 'js/canvas.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jq.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/bez.min.js' %}"></script>
 <!-- Assets -->
@@ -27,15 +26,42 @@
 <!-- Menu -->
 <div id="menu">
     <div class="trigger" id="trigger">
-        <svg class="trigger" x="0px" y="0px" viewBox="0 0 19.834 19.833" enable-background="new 0 0 19.834 19.833">
-            <g class="trigger" id="pclpun.tif">
-                <polygon class="poly trigger" points="1,5.281 1,7.188 6.062,10.219 1,13.188 1,15.188 9.531,10.234"/>
-                <rect class="rect trigger" x="9.531" y="13.594" width="8.531" height="1.719"/>
+        <svg x="0px" y="0px" viewBox="0 0 19.834 19.833" enable-background="new 0 0 19.834 19.833">
+            <g id="pclpun.tif">
+                <polygon class="poly" points="1,5.281 1,7.188 6.062,10.219 1,13.188 1,15.188 9.531,10.234"/>
+                <rect class="rect" x="9.531" y="13.594" width="8.531" height="1.719"/>
             </g>
         </svg>
     </div>
     <div id="menu-content">
-        <div class="trigger-close"></div>
+        <div class="menu-header" data="/{{ user.details.profile_picture }}">
+            <div class="header-content">
+                {% if user.is_authenticated %}
+                    <h3>@{{ user.username }}</h3>
+                    <h6>On level: {{ user.details.current_level }}</h6>
+                {% else %}
+                    <h3>Welcome</h3>
+                {% endif %}
+            </div>
+        </div>
+        <div class="menu-items">
+            <ul>
+                <li class="menu-item"><a href="{% url 'decode:index' %}"><i class="fa fa-home"></i>Home</li></a>
+                <li class="menu-item"><a href="{% url 'decode:play' %}"><i class="fa fa-play"></i>Play</li></a>
+                <li class="menu-item"><a href="{% url 'accounts:leaderboard' %}"><i class="fa fa-trophy"></i>Leaderboard</li></a>
+                <li class="menu-item"><a href="{% url 'accounts:profile' %}"><i class="fa fa-user"></i>Profile</li></a>
+                <li class="menu-item"><a href="{% url 'decode:help' %}"><i class="fa fa-question"></i>Help</li></a>
+            </ul>
+        </div>
+        <div class="menu-footer">
+            {% if user.is_authenticated %}
+                <a href="{% url 'accounts:password_change' %}"><i class="fa fa-key"></i> Change Password</a>
+                <a href="{% url 'accounts:logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
+            {% else %}
+                <a href="{% url 'accounts:login' %}"><i class="fa fa-sign-in"></i> Login</a>
+                <a href="{% url 'accounts:register' %}"><i class="fa fa-user-plus"></i> Register</a>
+            {% endif %}
+        </div>
     </div>
 </div>
 <!-- Main Content -->
@@ -43,5 +69,6 @@
     {% endblock %}
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/canvas.js' %}"></script>
 </body>
 </html>
