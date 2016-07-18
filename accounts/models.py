@@ -22,6 +22,7 @@ class UserData(models.Model):
     )
     profile_picture = models.ImageField(
         upload_to='static/assets/user_images/',
+        default='static/assets/user_images/default.png',
         blank=True
     )
     institute = models.CharField(
